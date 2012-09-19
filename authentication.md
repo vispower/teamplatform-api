@@ -33,11 +33,12 @@ Request access, receive a verification code, trade it for an access token.
 
 3. We redirect the user back to your app with a time-limited verification code.
 
-        http://your_app.com/your_redirct_path?code=issued_verification_code
+        http://your_redirect_uri?code=issued_verification_code
 
 4. Your app makes a backchannel request to trade the verification code for an access token. We authenticate your app and issue an access token:
 
         POST https://teamplatform.com/api/v1/oauth/access_token
+        
         ```json
         {
           grant_type: "authorization_code",
@@ -46,8 +47,10 @@ Request access, receive a verification code, trade it for an access token.
           client_id: "your-client-id",
           redirect_uri: "your-redirect-uri"
         }
+        ```
         
         Server Response:
+        
         ```json
         {
           access_token: "83eab44041067740f9f8c777975218bebb91fb9fc8c11367d73ad0c15626ac7a",
@@ -61,7 +64,7 @@ Request access, receive a verification code, trade it for an access token.
 
         Authorization: OAuth YOUR_OAUTH_TOKEN
         
-        Or
+Or
         
         GET https://teamplatform.com/api/v1/workspaces?access_token=your_access_token
 
@@ -76,6 +79,7 @@ Your app might require an additional verification process to get registered to u
 1. Your app requests an access token at authorization end point with parameters:
 
         POST https://teamplatform.com/api/v1/oauth/access_token
+        
         ```json
         {
           grant_type: "password",
@@ -97,6 +101,7 @@ Your fresh new access_token will expire at the time we specified in the response
 To get a refreshed access_token:
 
         POST https://teamplatform.com/api/v1/oauth/access_token
+        
         ```json
         {
           grant_type: "refresh_token",
