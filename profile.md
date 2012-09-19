@@ -17,7 +17,7 @@ Get Profile
 
 Your app can then manage its own user information based on this result. `id` is the user identifier which is unique across the all users of TeamPlatform.com.
 
-Invite New User
+Invite new user
 -------------
 
 New user can be invited directly to workspaces via the [Share API](https://github.com/vispower/teamplatform-api/blob/master/share.md).
