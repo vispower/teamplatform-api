@@ -72,13 +72,13 @@ Create share
 
 ```json
 {
-  "emails": [ 'joe@example.com', 'john@example.com' ],
+  "emails": [ "joe@example.com", "john@example.com" ],
   "group_names": [ "marketing group", "engineering group" ],
   "team_share": true
 }
 ```
 
-This will return `200 Ok` with newly created shares if the share was created successfully. If the authenticated user does not have access to this workspace, `401 Not Authorized` will be returned.
+This will return `200 Ok` with newly created shares if the share was created successfully. If the authenticated user does not have access to this workspace, `403 Forbidden` will be returned.
 
 
 Delete share
@@ -86,4 +86,4 @@ Delete share
 
 * `DELETE /workspaces/1/shares/1` will revoke the access of the share object which id is mentioned in the URL.
 
-This will return `204 Ok` if the request was a success and the access was revoked. If the user does not have access to revoke access from the workspace or doesn't have access to the workspace, `403 Forbidden` will be returned.
+This will return `204 No Content` if the request was a success and the access was revoked. If the user does not have access to revoke access from the workspace or doesn't have access to the workspace, `403 Forbidden` will be returned.
