@@ -40,16 +40,16 @@ Request access, receive a verification code, trade it for an access token.
         POST https://teamplatform.com/api/v1/oauth/access_token
         {
           "grant_type": "authorization_code",
-          "code": "verification-code",
-          "client_secret": "your-client-secret",
-          "client_id": "your-client-id",
-          "redirect_uri": "your-redirect-uri"
+          "code": "verification_code",
+          "client_secret": "your_client_secret",
+          "client_id": "your_client_id",
+          "redirect_uri": "your_redirect_uri"
         }
 
         Server Response:
         {
           "access_token": "83eab44041067740f9f8c777975218bebb91fb9fc8c11367d73ad0c15626ac7a",
-          "expires_at": "1348076171",
+          "expires_at": "2012-09-18T18:11:40-07:00",
           "refresh_token": "e359ae94bd7046b135380d03af265c78556d897416c8c5dafb74a7d3ab1d8445",
           "scope": "read write"
         }
