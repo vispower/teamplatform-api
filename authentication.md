@@ -39,19 +39,19 @@ Request access, receive a verification code, trade it for an access token.
         
         POST https://teamplatform.com/api/v1/oauth/access_token
         {
-          grant_type: "authorization_code",
-          code: "verification-code",
-          client_secret: "your-client-secret",
-          client_id: "your-client-id",
-          redirect_uri: "your-redirect-uri"
+          "grant_type": "authorization_code",
+          "code": "verification-code",
+          "client_secret": "your-client-secret",
+          "client_id": "your-client-id",
+          "redirect_uri": "your-redirect-uri"
         }
 
         Server Response:
         {
-          access_token: "83eab44041067740f9f8c777975218bebb91fb9fc8c11367d73ad0c15626ac7a",
-          expires_at: "1348076171",
-          refresh_token: "e359ae94bd7046b135380d03af265c78556d897416c8c5dafb74a7d3ab1d8445",
-          scope: "read write"
+          "access_token": "83eab44041067740f9f8c777975218bebb91fb9fc8c11367d73ad0c15626ac7a",
+          "expires_at": "1348076171",
+          "refresh_token": "e359ae94bd7046b135380d03af265c78556d897416c8c5dafb74a7d3ab1d8445",
+          "scope": "read write"
         }
 
 5. Your app uses the token to authorize API requests to any of the TeamPlatform accounts. Set the Authorization request header or as a query parameter:
