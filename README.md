@@ -46,17 +46,18 @@ API ready for use
 
 * [Authentication](https://github.com/vispower/teamplatform-api/blob/master/authentication.md)
 * [Profile](https://github.com/vispower/teamplatform-api/blob/master/profile.md)
-* [Workspace](https://github.com/37signals/bcx-api/blob/master/workspace.md)
-* [Comment](https://github.com/37signals/bcx-api/blob/master/comment.md)
-* [File](https://github.com/37signals/bcx-api/blob/master/file.md)
-* [Page](https://github.com/37signals/bcx-api/blob/master/page.md)
-* [Task](https://github.com/37signals/bcx-api/blob/master/task.md)
-* [Property](https://github.com/37signals/bcx-api/blob/master/property.md)
-* [Search](https://github.com/37signals/bcx-api/blob/master/search.md)
+* [Workspace](https://github.com/vispower/teamplatform-api/blob/master/workspace.md)
+* [Comment](https://github.com/vispower/teamplatform-api/blob/master/comment.md)
+* [File](https://github.com/vispower/teamplatform-api/blob/master/file.md)
+* [Page](https://github.com/vispower/teamplatform-api/blob/master/page.md)
+* [Task](https://github.com/vispower/teamplatform-api/blob/master/task.md)
+* [Property](https://github.com/vispower/teamplatform-api/blob/master/property.md)
+* [Share](https://github.com/vispower/teamplatform-api/blob/master/share.md)
+* [Search](https://github.com/vispower/teamplatform-api/blob/master/search.md)
 
 Help us make it better
 ----------------------
 
 Please tell us how we can make the API better. If you have a specific feature request or if you found a bug, please use GitHub issues.
 
-This documentation is inspired by 37signals's [bcx-api](https://github.com/37signals/bcx-api)
+This documentation is inspired by 37signals's [bcx-api](https://github.com/vispower/teamplatform-api)
