@@ -53,32 +53,21 @@ Get workspaces
 ```
 
 More filtering options are available for `GET /workspaces`:
-        
+
 * `GET /workspaces?status=active` will return active workspaces.
-
 * `GET /workspaces?status=archived` will return archived workspaces.
-
 * `GET /workspaces?deleted=[true|false]` will return `deleted/not-deleted` workspaces.
-
 * `GET /workspaces?starred=[true|false]` will return workspaces which were `starred/not-starred` by current user.
-
 * `GET /workspaces?template=[true|false]` will return `template/normal` workspaces.
-
 * `GET /workspaces?created_since=2012-09-18T18:11:40-07:00` will return workspaces which were created after given time.
-
 * `GET /workspaces?updated_since=2012-09-18T18:11:40-07:00` will return workspaces which were updated after given time.
-
 * `GET /workspaces?label_name=project` will return workspaces which were labeled as `project`.
-
 * `GET /workspaces?owner_ids=1,2,9` will return workspaces which have owner's id of 1 or 2 or 9.
-
 * `GET /workspaces?team_ids=1,2,3` will return workspaces which have owner's team's id of 1 or 2 or 3.
-
 * `GET /workspaces?synced=true` will return workspaces which have been synced with users's desktop folders.
-
 * `GET /workspaces?q=rabbit` will search for the workspaces which contain `rabbit` keyword. Given `q` parameter, TeamPlatform will perform a full text search on key informations like title, description, owner name, labels and custom properties.
 
-Get workspace
+Get Workspace
 -----------
 
 * `GET /workspaces/1` will return the specified single workspace with same data structure from `GET /workspaces`
@@ -139,7 +128,7 @@ Delete/Undelete/Purge workspace
 
 * `DELETE /workspaces/1` will delete the workspace specified and return `200 Ok` if that was successful. If the user does not have access to delete the workspace, you'll see `403 Forbidden`.
 
-* `PUT /workspaces/1` with the following JSON(with blank deleted_at parameter) will undelete the workspace and return `200 Ok` if that was successful. If the user does not have access to undelete the workspace, you'll see `403 Forbidden`.
+* `PUT /workspaces/1` with the following JSON(with blank `deleted_at` parameter) will undelete the workspace and return `200 Ok` if that was successful. If the user does not have access to undelete the workspace, you'll see `403 Forbidden`.
 
 ```json
 {
