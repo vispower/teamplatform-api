@@ -3,7 +3,7 @@ The TeamPlatform API V1
 
 The [TeamPlatform.com](https://teamplatform.com) API is now available for all users. TeamPlatform API is a RESTful API that uses JSON for serialization and OAuth 2 for authentication.
 
-Getting Started
+Making Requests
 ----------------
 
 All API requests URLs start with `https://teamplatform.com/api/v1/`. Requests should be SSL. The path is prefixed with the API version. 
@@ -17,8 +17,9 @@ curl -H 'Authorization: OAuth your_access_token' https://teamplatform.com/api/v1
 To create a workspace, you have to POST with `Content-Type` header and the JSON data:
 
 ```shell
-curl -H 'Content-Type: application/json; Authorization: OAuth your_access_token' \
-     -d '{ "title": "New Workspace" }' \
+curl -H 'Content-Type: application/json' \
+     -H 'Authorization: OAuth your_access_token' \
+     -d '{ "title": "New Workspace", "description": "Cool Project!" }' \
      https://teamplatform.com/api/v1/workspaces
 ```
 
@@ -27,8 +28,9 @@ To learn more about OAuth access_token, see [Authentication Section](https://git
 Authentication
 --------------
 
+TeamPlatform authenticates end users using OAuth 2 only (No basic auth available). This allows users to authorize your application to use TeamPlatform on their behalf without having to copy/paste API tokens or touch sensitive login info.
 
-JSON data
+JSON
 -----------------
 
 We only support JSON for serialization of data. Our format is to have no root element and we use snake\_case to describe attribute keys. This means that you have to send `Content-Type: application/json; charset=utf-8` when you're POSTing or PUTing data into TeamPlatform.
@@ -37,7 +39,7 @@ We only support JSON for serialization of data. Our format is to have no root el
 Handling errors
 ---------------
 
-If TeamPlatform is having trouble, you might see a 5xx error. `500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`. It's your responsibility in all of these cases to retry your request later.
+If TeamPlatform is having trouble, you might see a 5xx error. `500` means that TeamPlatform failed fulfilling the request, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`. It's your responsibility in all of these cases to retry your request later.
 
 API ready for use
 -----------------
@@ -51,9 +53,6 @@ API ready for use
 * [Task](https://github.com/37signals/bcx-api/blob/master/task.md)
 * [Property](https://github.com/37signals/bcx-api/blob/master/property.md)
 * [Search](https://github.com/37signals/bcx-api/blob/master/search.md)
-
-API still under development
----------------------------
 
 Help us make it better
 ----------------------
