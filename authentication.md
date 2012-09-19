@@ -21,9 +21,9 @@ OAuth 2 from scratch
 
 If you're going bare-metal and developing your own OAuth 2 client, you have a bit more work to do.
 
-**TL;DR** request access, receive a verification code, trade it for an access token.
+**The typical flow for a web app:**
 
-The typical flow for a web app:
+Request access, receive a verification code, trade it for an access token.
 
 1. Your app requests authorization by redirecting your user to TeamPlatform's authorization end point:
 
@@ -33,15 +33,80 @@ The typical flow for a web app:
 
 3. We redirect the user back to your app with a time-limited verification code.
 
+        http://your_app.com/your_redirct_path?code=issued_verification_code
+
 4. Your app makes a backchannel request to trade the verification code for an access token. We authenticate your app and issue an access token:
 
-        POST https://teamplatform.com/api/v1/oauth/access_token?grant_type=authorization_code&client_id=your-client-id&redirect_uri=your-redirect-uri&client_secret=your-client-secret&code=verification-code
+        POST https://teamplatform.com/api/v1/oauth/access_token
+        ```json
+        {
+          grant_type: "authorization_code",
+          code: "verification-code",
+          client_secret: "your-client-secret",
+          client_id: "your-client-id",
+          redirect_uri: "your-redirect-uri"
+        }
+        
+        Server Response:
+        ```json
+        {
+          access_token: "83eab44041067740f9f8c777975218bebb91fb9fc8c11367d73ad0c15626ac7a",
+          expires_at: "1348076171",
+          refresh_token: "e359ae94bd7046b135380d03af265c78556d897416c8c5dafb74a7d3ab1d8445",
+          scope: "read write"
+        }
+        ```
 
-5. Your app uses the token to authorize API requests to any of the TeamPlatform accounts. Set the Authorization request header:
+5. Your app uses the token to authorize API requests to any of the TeamPlatform accounts. Set the Authorization request header or as a query parameter:
 
         Authorization: OAuth YOUR_OAUTH_TOKEN
+        
+        Or
+        
+        GET https://teamplatform.com/api/v1/workspaces?access_token=your_access_token
 
 6. To get info about the TeamPlatform ID you authorized and the accounts you have access to, make an authorized request to `https://teamplatform.com/api/v1/profile`.
+
+**Flow for a native app:**
+
+Trade username and password for an access token.
+This flow allows your app to get access token directly from user credentials without redirection.
+Your app might require an additional verification process to get registered to use this flow.
+
+1. Your app requests an access token at authorization end point with parameters:
+
+        POST https://teamplatform.com/api/v1/oauth/access_token
+        ```json
+        {
+          grant_type: "password",
+          username: "your_user_email",
+          password: "your_user_password",
+          client_id: "a005a867611186693e4a",
+          client_secret: "2a28dda51e0e0f1a4ccb23",
+          scope: "read write"
+        }
+        ```
+
+2. We authenticate your app without user consent and issue an access token.
+
+3. Your app access APIs with responded access_token.
+
+**Refreshing access_token
+
+Your fresh new access_token will expire at the time we specified in the response as `expires_at`.
+To get a refreshed access_token:
+
+        POST https://teamplatform.com/api/v1/oauth/access_token
+        ```json
+        {
+          grant_type: "refresh_token",
+          refresh_token: "e359ae94bd7046b135380d03af265c78556d897416c8c5dafb74a7d3ab1d8445",
+          client_id: "a005a867611186693e4a",
+          client_secret: "2a28dda51e0e0f1a4ccb23"
+        }
+        ```
+        
+Server will respond with refreshed access_token and new expires_at value.
 
 Implementation notes:
 
