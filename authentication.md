@@ -84,7 +84,7 @@ Your app might require an additional verification process to get registered to u
 
 3. Your app access APIs with responded access_token.
 
-**Refreshing access_token
+**Refreshing access_token**
 
 Your fresh new access_token will expire at the time we specified in the response as `expires_at`.
 To get a refreshed access_token:
