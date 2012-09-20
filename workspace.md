@@ -1,7 +1,7 @@
 Workspaces
 ========
 
-Get workspaces
+Get Workspaces
 ------------
 
 * `GET /workspaces` will return all workspaces.
@@ -37,7 +37,7 @@ Get workspaces
     "owner": {
       "id": 1,
       "name": "Randy Jung",
-      "email": "randyj@vispowertech.com",
+      "email": "randyj@example.com@vispowertech.com",
       "team_name": "VispowerTech",
       "team_id": 1,
       "picture": "https://d3hdmtlhbe6vzi.cloudfront.net/avatars/1/947fbb3731d5e7b765a3c594be4c47ed.png"
@@ -112,7 +112,7 @@ Update Workspace
 
 This will return `200 OK` if the update was a success along with the current JSON representation of the workspace. If the user does not have access to update the workspace, you'll see `403 Forbidden`.
 
-Archiving/Activating a workspace
+Archiving and Activating a workspace
 ------------------------------
 
 * `PUT /workspaces/1` with the following JSON will archive a workspace. Passing "active" will re-activate the workspace.
@@ -123,7 +123,7 @@ Archiving/Activating a workspace
 }
 ```
 
-Delete/Undelete/Purge workspace
+Delete, Undelete and Purge workspace
 -------------
 
 * `DELETE /workspaces/1` will delete the workspace specified and return `200 Ok` if that was successful. If the user does not have access to delete the workspace, you'll see `403 Forbidden`.
