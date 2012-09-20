@@ -39,8 +39,8 @@ To get all the comments accessible by you, call `GET /comments` and resulting JS
 ```
 
 This call returns all the comments and replies in JSON array.
-Each comment has the `commented_on` key pointing to the resource which the comment was written for.
-`workspace_1` means that this comment was written for the workspace which id is 1.
+Each comment has the `commented_on` pointing to the resource which the comment was written for.
+`workspace_1` means that this comment was written for the workspace 1.
 
 * `GET /workspaces/1/comments`
 
@@ -76,11 +76,11 @@ Each comment will have `comments` which contains all the replies written for the
 
 More filtering options are available:
 
-* `GET /comments?commented_on_type=Workspace` will return comments written for a workspace. Other parameters can be `File`, `Page` or `Comment` to get replies only.
-* `GET /comments?commented_on_type=File&commented_on_ids=1,2,3` will return comments written for files which id is 1, 2 or 3. `commented_on_ids` parameter will only work with `commented_on_type` parameter present.
+* `GET /comments?commented_on_type=Workspace` will only return comments written for a workspace. Other parameters can be `File`, `Page` or `Comment`.
+* `GET /comments?commented_on_type=File&commented_on_ids=1,2,3` will return comments written for file 1, file 2 or file 3. `commented_on_ids` parameter will only work with `commented_on_type` parameter present.
 * `GET /comments?created_since=2012-09-18T18:11:40-07:00` will return comments which were created after given time.
 * `GET /comments?updated_since=2012-09-18T18:11:40-07:00` will return comments which were updated after given time.
-* `GET /comments?owner_ids=1,2,9` will return comments which have owner's id of 1 or 2 or 9.
+* `GET /comments?owner_ids=1,2,9` will return comments which have owner 1 or owner 2 or owner 9.
 * `GET /comments?q=rabbit` will search for the comments which contain `rabbit` as a keyword. Given `q` parameter, TeamPlatform will perform a full text search on comment.
 
 Create Comment
@@ -101,8 +101,8 @@ Create Comment
 ```
 
 This will return `200 Ok`, with a representation of the comment just created in the response body if the creation was a success.
-`<commentable>` can not be comments itself. So, `POST /comments` is not allowed and will return `400 Bad Request`.
-If the commentable is not editable by you, server will respond with `403 Forbidden`
+Because `<commentable>` can not be comments itself, `POST /comments` is not allowed and will return `400 Bad Request`.
+If the commentable is not editable by you, server will respond with `403 Forbidden`.
   
 Create Reply
 --------------
