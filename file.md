@@ -60,7 +60,7 @@ If the user has no permission to access the workspace, server will return `403 F
 
 `ftype` can be `file` or `folder`, `filesize` is in byte.
 
-`ancestry` is the ids of the parent folders represented in the form of file path notation. For example, `ancestry` value of `1/2/3` means the file is in folder 3(id), folder 3 is in folder 2, folder 2 is in folder 1 which is the workspace's root folder and finally folder 1 is in root sync folder like `c:\\teamplatform-sync-folder`. `is_root` tells the file is the workspace's root folder or not(Surely, if this value is true, then `ftype` should also be `folder`). `ancestry` value might be useful to generate tree structure of the entire files under a workspace or create breadcrumbs for navigating folders.
+`ancestry` is the ids of the parent folders represented in the form of file path notation. For example, `ancestry` value of `1/2/3` means the file is in folder 3(id), folder 3 is in folder 2, folder 2 is in folder 1 which is the workspace's root folder and finally folder 1 is in root sync folder like `c:\\teamplatform-sync-folder`. `is_root` tells whether the file is the workspace's root folder or not(Surely, if this value is true, then `ftype` should also be `folder`). `ancestry` value might be useful to generate tree structure of the entire files under a workspace or create breadcrumbs for navigating folders.
 
 `version` denotes current active-and-last version number of the file.
 
@@ -101,7 +101,7 @@ Response will look like same as `GET /files` but with single JSON representation
 }
 ```
 
-Create File
+Upload and Create File
 -----------------
 
 TeamPlatform provides chunked file upload to support large file upload and resuming. Uploading files to TeamPlatform is a few step process:
@@ -131,7 +131,7 @@ TeamPlatform provides chunked file upload to support large file upload and resum
 
 3. After the last chunk, `POST /files` or `POST /workspaces/1/files` to complete the upload.
 
-        POST **/workspaces/1**/files
+        POST /workspaces/1/files
         {
           "upload_id": "7a69476a3dc2cfe12cba9225072d7ec2c0ef8f9a88c9984bcb43eb8ec1cdd926",
           "key": "To be ignored workspace title but required/will create missing subfolders/myfile.zip",
