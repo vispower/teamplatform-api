@@ -106,9 +106,9 @@ Upload and Create File
 
 TeamPlatform provides chunked file upload to support large file upload and resuming. Uploading files to TeamPlatform is a few step process:
 
-1. `PUT /files/upload` or `PUT /workspaces/1/files/upload` with the first chunk of the file without setting `upload_id`, and receive an `upload_id` in return.
+1. `PUT /workspaces/1/files/upload` with the first chunk of the file without setting `upload_id`, and receive an `upload_id` in return.
 
-        PUT /files/upload?offset=0
+        PUT /workspaces/1/files/upload?offset=0
         
         // Set "Content-Type" header to "application/binary" or the content type of the file
         // Whole request body should be a chunk of data from the file being uploaded.
@@ -121,7 +121,7 @@ TeamPlatform provides chunked file upload to support large file upload and resum
 
 2. Repeatedly PUT subsequent chunks using the `upload_id` to identify the upload in progress and an `offset` representing the number of bytes transferred so far. After each chunk has been uploaded, the server returns a new offset representing the total amount transferred.
 
-        PUT /files/upload?offset=1048576&upload_id=7a69476a3dc2cfe12cba9225072d7ec2c0ef8f9a88c9984bcb43eb8ec1cdd926
+        PUT /workspaces/1/files/upload?offset=1048576&upload_id=7a69476a3dc2cfe12cba9225072d7ec2c0ef8f9a88c9984bcb43eb8ec1cdd926
         
         Server returns:
         {
@@ -139,8 +139,9 @@ TeamPlatform provides chunked file upload to support large file upload and resum
         }
 
 "key" should always include workspace's root folder name(which is identical to workspace title and should not start with `/`)
+Note that all three steps require workspace identifier(`/workspaces/1`) where the file will reside.
 
-Note that Step 3 requires workspace identifier(`/workspaces/1`) where the file will reside. If the workspace isn't accessible by you, server will respond with `403 Forbidden`. If the specified workspace is found but sub folder doesn't exist, server will create missing sub-folders automatically and put the file inside the sub folder.
+If the workspace isn't accessible by you, server will respond with `403 Forbidden`. If the specified workspace is found but sub folder doesn't exist, server will create missing sub-folders automatically and put the file inside the sub folder. If the key already exists, the version number will bump up by 1.
 
 Chunks can be any size but typical chunk is 1~5 MB. Server will be timed out if the chunk size is too big or connection is too slow. Using large chunks will mean fewer calls to and faster overall throughput. However, whenever a transfer is interrupted, you will have to resume at the beginning of the last chunk, so it is often safer to use smaller chunks.
 
@@ -155,7 +156,7 @@ Create Folder
           "ftype": "folder"
         }
         
-Server will respond with `200 Ok` if the creation was successful.
+Server will respond with `200 Ok` if the creation was successful. If the key already exists, server will respond with `400 Bad Request`.
 
 Rename File or Folder
 ---------------------
@@ -164,8 +165,19 @@ Rename File or Folder
         {
           "filename": "Renamed.avi"
         }
+        
+        PUT /workspaces/1/files/2
+        {
+          "filename": "Renamed Folder"
+        }
 
-Folder can also be renamed by setting `filename` to folder's name - which is the last bit of path. This `filename` parameter should not contain `/` in it. Server will just ignore the update request if `filename` contains `/`. If you rename the workspace's root folder name, the workspace title will update accordingly. Server will respond `200 Ok` with updated JSON if the renaming was successful. We currently doesn't support more file operation features like move or copy.
+`filename` parameter should not contain `/` in it. Server will just ignore the update request if `filename` contains `/`. If you rename the workspace's root folder name, the workspace title will update accordingly. Server will respond `200 Ok` with updated JSON if the renaming was successful.
+
+You can't rename file or folder to existing file or folder name inside the same parent folder like any other file systems (Server will return `400 Bad Request`).
+
+If our server returns `409 Conflict`, it means that current operation cannot be done at this moment because there's other process trying to modify the same resource. The process will usually complete in a few seconds, but can be long as a minute depending on the size of the workspace's folder/file structure (if the workspace has thousands of files).
+
+We currently doesn't support more file operation features like move or copy for the API.
 
 Delete, Undelete and Purge file
 -------------
