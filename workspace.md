@@ -1,5 +1,7 @@
 Workspaces
-========
+=============
+
+> Workspace is the central place where all contents are organized.
 
 Get Workspaces
 ------------

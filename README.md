@@ -1,6 +1,8 @@
 The TeamPlatform API V1
 ====================
 
+> Your Collaboration Portal in Minutes.
+
 The [TeamPlatform.com](https://teamplatform.com) API is now available for all users. TeamPlatform API is a RESTful API that uses JSON for serialization and OAuth 2 for authentication.
 
 Making Requests

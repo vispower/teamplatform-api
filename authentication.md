@@ -1,7 +1,7 @@
 TeamPlatform API Authentication
 ============================
 
-All API requests can be authenticated by passing along an OAuth 2 token. Other types of authentications like basic auth are not supported.
+> All API requests can be authenticated by passing along an OAuth 2 access_token.
 
 OAuth 2
 -------

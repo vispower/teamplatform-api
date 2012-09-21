@@ -1,6 +1,8 @@
 Share
 ========
 
+> In TeamPlatform, people can be invited to workspaces and team.
+
 Get shares
 ------------
 

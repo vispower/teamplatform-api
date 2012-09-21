@@ -1,6 +1,8 @@
 Files
 ===========
 
+> Each workspace has its own folder structure like your desktop file system.
+
 Get Files
 ---------
 

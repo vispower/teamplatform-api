@@ -1,6 +1,8 @@
 Comments
 ========
 
+> Comment can be written for workspaces, files, pages and comment itself as replies.
+
 Get Comments and Replies
 ------------------------
 
