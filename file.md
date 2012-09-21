@@ -129,7 +129,7 @@ TeamPlatform provides chunked file upload to support large file upload and resum
           "offset": 2097152
         }
 
-3. After the last chunk, `POST /files` or `POST /workspaces/1/files` to complete the upload.
+3. After the last chunk, `POST /workspaces/1/files` to complete the upload.
 
         POST /workspaces/1/files
         {
