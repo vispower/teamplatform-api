@@ -32,11 +32,10 @@ Authentication
 
 TeamPlatform authenticates end users using OAuth 2 only (No basic auth available). This allows users to authorize your application to use TeamPlatform on their behalf without having to copy/paste API tokens or touch sensitive login info.
 
-JSON
+JSON Responses
 -----------------
 
 We only support JSON for serialization of data. Our format is to have no root element and we use snake\_case to describe attribute keys. This means that you have to send `Content-Type: application/json; charset=utf-8` when you're POSTing or PUTing data into TeamPlatform.
-
 
 Handling errors
 ---------------

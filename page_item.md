@@ -55,7 +55,7 @@ Server will return `200 Ok` with page items in the page if the user is accessibl
 `show_owner` flag denotes the file owners will be shown or not in shared page view.
 `updater` is the user who updated the page last time.
 
-`GET /pages/1/page_items` doesn't have further filtering options and returns all the page items in the page always.
+`GET /pages/1/page_items` doesn't have further filtering options and returns all the page items of the page sorted by `position`.
 
 Get Page Item
 ------------------
