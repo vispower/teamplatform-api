@@ -72,6 +72,9 @@ If the user has no permission to access the workspace, server will return `403 F
 
 More filtering options are available:
 
+* `GET /files?page=2` to get the page two of results. The result will be paginated 30 items per page.
+* `GET /files?order_by=updated_at+desc` will return sorted results by `updated_at` field.
+* `GET /files?order_by=created_at+desc` will return sorted results by `created_at` field.
 * `GET /files?created_since=2012-09-18T18:11:40-07:00` will return files created after given time.
 * `GET /files?updated_since=2012-09-18T18:11:40-07:00` will return files updated after given time.
 * `GET /files?owner_ids=1,2,9` will return files which have owner 1 or owner 2 or owner 9.

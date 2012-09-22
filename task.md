@@ -55,6 +55,7 @@ Task has three `state`s that are `created`, `started` and `finished`.
 
 More filtering options are available for `GET /tasks` and `GET /workspaces/1/tasks`:
 
+* `GET /tasks?page=2` to get the page two of results. The result will be paginated 30 items per page.
 * `GET /tasks?created_since=2012-09-18T18:11:40-07:00` will return tasks which were created after given time.
 * `GET /tasks?updated_since=2012-09-18T18:11:40-07:00` will return tasks which were updated after given time.
 * `GET /tasks?workspace_id=1` will return tasks in workspace 1.

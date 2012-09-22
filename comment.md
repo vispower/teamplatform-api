@@ -78,6 +78,9 @@ Each comment will have `comments` which contains all the replies written for the
 
 More filtering options are available:
 
+* `GET /comments?page=2` to get the page two of results. The result will be paginated 30 items per page.
+* `GET /comments?order_by=updated_at+desc` will return sorted results by `updated_at` field.
+* `GET /comments?order_by=created_at+desc` will return sorted results by `created_at` field.
 * `GET /comments?commented_on_type=Workspace` will only return comments written for a workspace. Other parameters can be `File`, `Page` or `Comment`.
 * `GET /comments?commented_on_type=File&commented_on_ids=1,2,3` will return comments written for file 1, file 2 or file 3. `commented_on_ids` parameter will only work with `commented_on_type` parameter present.
 * `GET /comments?created_since=2012-09-18T18:11:40-07:00` will return comments which were created after given time.

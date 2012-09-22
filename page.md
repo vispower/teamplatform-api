@@ -56,6 +56,9 @@ If a page has share_mode of `anyone`, `expire_at` and `password` options will be
 
 More filtering options are available for `GET /pages`:
 
+* `GET /pages?page=2` to get the page two of results. The result will be paginated 30 items per page.
+* `GET /pages?order_by=updated_at+desc` will return sorted results by `updated_at` field.
+* `GET /pages?order_by=created_at+desc` will return sorted results by `created_at` field.
 * `GET /pages?created_since=2012-09-18T18:11:40-07:00` will return pages which were created after given time.
 * `GET /pages?updated_since=2012-09-18T18:11:40-07:00` will return pages which were updated after given time.
 * `GET /pages?owner_ids=1,2,9` will return pages which have owner's id of 1 or 2 or 9.

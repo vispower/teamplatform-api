@@ -56,6 +56,9 @@ Get Workspaces
 
 More filtering options are available for `GET /workspaces`:
 
+* `GET /workspaces?page=2` to get the page two of results. The result will be paginated 30 items per page.
+* `GET /workspaces?order_by=updated_at+desc` will return sorted results by `updated_at` field.
+* `GET /workspaces?order_by=created_at+desc` will return sorted results by `created_at` field.
 * `GET /workspaces?status=active` will return active workspaces.
 * `GET /workspaces?status=archived` will return archived workspaces.
 * `GET /workspaces?deleted=[true|false]` will return `deleted/not-deleted` workspaces.
