@@ -163,5 +163,5 @@ Update Property
 Delete Property
 ----------------
 
-* `DELETE /properties/1` will delete property 1
-* `DELETE /workspaces/1/properties/1` will remove the property-value pair in workspace 1, but will not delete property 1 itself.
+* `DELETE /properties/1` will delete property 1 and all property-value pairs across all the workspaces.
+* `DELETE /workspaces/1/properties/1` will remove only the property-value pair in workspace 1, but will not delete property 1 itself.
