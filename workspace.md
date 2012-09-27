@@ -133,12 +133,6 @@ Delete, Undelete and Purge workspace
 
 * `DELETE /workspaces/1` will delete the workspace specified and return `200 Ok` if that was successful. If the user does not have access to delete the workspace, you'll see `403 Forbidden`.
 
-* `PUT /workspaces/1` with the following JSON(with blank `deleted_at` parameter) will undelete the workspace and return `200 Ok` if that was successful. If the user does not have access to undelete the workspace, you'll see `403 Forbidden`.
-
-```json
-{
-  "deleted_at": ""
-}
-```
+* `DELETE /workspaces/1?undelete=true` will undelete the workspace and return `200 Ok` if that was successful. If the user does not have access to undelete the workspace, you'll see `403 Forbidden`.
 
 * `DELETE /workspaces/1?purge=true` will permanently delete the workspace and return `204 No Content` if that was successful. If the user does not have access to purge the workspace, you'll see `403 Forbidden`.

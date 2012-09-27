@@ -189,12 +189,6 @@ Delete, Undelete and Purge file
 
 * `DELETE /files/1` will delete the file and return `200 Ok` if that was successful. If the user does not have access to delete the file, you'll see `403 Forbidden`.
 
-* `PUT /files/1` with the following JSON(with blank `deleted_at` parameter) will undelete the file and return `200 Ok` if that was successful. If the user does not have access to undelete the file, you'll see `403 Forbidden`.
-
-```json
-{
-  "deleted_at": ""
-}
-```
+* `DELETE /files/1?undelete=true` will undelete the file and return `200 Ok` if that was successful. If the user does not have access to undelete the file, you'll see `403 Forbidden`.
 
 * `DELETE /files/1?purge=true` will permanently delete the file and return `204 No Content` if that was successful. If the user does not have access to purge the file, you'll see `403 Forbidden`.
