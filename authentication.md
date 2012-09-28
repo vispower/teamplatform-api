@@ -27,20 +27,20 @@ Request access, receive a verification code, trade it for an access token.
 
 1. Your app requests authorization by redirecting your user to TeamPlatform's authorization end point:
 
-        https://teamplatform.com/api/v1/oauth/authorize?response_type=code&client_id=your-client-id&redirect_uri=your-redirect-uri
+        https://teamplatform.com/api/v1/oauth/authorize?response_type=code&client_id=your_client_id&redirect_uri=your_redirect_uri
 
 2. We authenticate their TeamPlatform ID and ask whether it's ok to give access to your app.
 
 3. We redirect the user back to your app with a time-limited verification code.
 
-        http://your_redirect_uri?code=issued_verification_code
+        http://your_redirect_uri?code=your_issued_verification_code
 
 4. Your app makes a backchannel request to trade the verification code for an access token. We authenticate your app and issue an access token:
         
         POST https://teamplatform.com/api/v1/oauth/access_token
         {
           "grant_type": "authorization_code",
-          "code": "verification_code",
+          "code": "your_issued_verification_code",
           "client_secret": "your_client_secret",
           "client_id": "your_client_id",
           "redirect_uri": "your_redirect_uri"
