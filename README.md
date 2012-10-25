@@ -61,4 +61,4 @@ Help us make it better
 
 Please tell us how we can make the API better. If you have a specific feature request or if you found a bug, please use GitHub issues.
 
-This documentation is inspired by 37signals's [bcx-api](https://github.com/vispower/teamplatform-api)
+This documentation is inspired by 37signals's [bcx-api](https://github.com/37signals/bcx-api)
