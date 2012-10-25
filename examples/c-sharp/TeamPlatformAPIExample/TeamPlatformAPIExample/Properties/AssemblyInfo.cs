@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TeamPlatformAPIExample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("RFI")]
+[assembly: AssemblyCompany("VISPOWER TECHNOLOGY, INC.")]
 [assembly: AssemblyProduct("TeamPlatformAPIExample")]
-[assembly: AssemblyCopyright("Copyright © RFI 2012")]
+[assembly: AssemblyCopyright("Copyright © 2012 VISPOWER TECHNOLOGY, INC.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
