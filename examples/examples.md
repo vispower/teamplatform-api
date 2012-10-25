@@ -6,5 +6,5 @@ TeamPlatform API Examples
 Examples
 --------
 
-* [C# Windows Application](https://github.com/vispower/teamplatform-api/blob/master/c# example)
+* [C# Windows Application](https://github.com/vispower/teamplatform-api/blob/master/c#-example)
 * More to come...
