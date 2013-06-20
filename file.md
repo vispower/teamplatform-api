@@ -157,8 +157,8 @@ Download File
 
 * `GET /workspaces/1/files/1/download` to download file 1 in workspace 1.
 
-Response will be actual file in content-type of `application/octet-stream`.
-* You can download different versions by specifying version number like `GET /workspaces/1/files/1/download?version=2`
+Response will be actual file with content-type of `application/octet-stream`.
+You can download different versions by specifying version number like `GET /workspaces/1/files/1/download?version=2`
 
 Create Folder
 --------------
