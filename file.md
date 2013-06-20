@@ -152,6 +152,14 @@ Chunks can be any size but typical chunk is 1~5 MB. Server will be timed out if 
 
 If the offset you submit does not match the expected offset on the server, the server will ignore the request and respond with a 400 error that includes the current offset. To resume upload, seek to the correct offset (in bytes) within the file and then resume uploading from that point.
 
+Download File
+--------
+
+* `GET /workspaces/1/files/1/download` to download file 1 in workspace 1.
+
+Response will be actual file in content-type of `application/octet-stream`.
+* You can download different versions by specifying version number like `GET /workspaces/1/files/1/download?version=2`
+
 Create Folder
 --------------
 
