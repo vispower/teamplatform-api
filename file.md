@@ -16,6 +16,7 @@ Get Files
     "key": "Workspace which contains a solidworks assembly/assembly.sldasm",
     "filename": "assembly.sldasm",
     "ftype": "file",
+    "kind": "cad",
     "filesize": 401011,
     "ancestry": "9183",
     "is_root": false,
@@ -60,7 +61,7 @@ If the user has no permission to access the workspace, server will return `403 F
 
 `key` is the file's unique path which starts from workspace title and is also the path of the file in your synced folder. For example, when you specify TeamPlatform's DWM sync location at `c:\\teamplatform-sync-folder`, the full path of the synced local file will be `c:\\teamplatform-sync-folder\Workspace which contains a solidworks assembly\assembly.sldasm` for the first file of the above example.
 
-`ftype` can be `file` or `folder`, `filesize` is in byte.
+`ftype` can be `file` or `folder`. `filesize` is in byte.
 
 `ancestry` is the ids of the parent folders represented in the form of file path notation. For example, `ancestry` value of `1/2/3` means the file is in folder 3(id), folder 3 is in folder 2, folder 2 is in folder 1 which is the workspace's root folder and finally folder 1 is in root sync folder like `c:\\teamplatform-sync-folder`. `is_root` tells whether the file is the workspace's root folder or not(Surely, if this value is true, then `ftype` should also be `folder`). `ancestry` value might be useful to generate tree structure of the entire files under a workspace or create breadcrumbs for navigating folders.
 
@@ -100,6 +101,7 @@ Response will look like same as `GET /files` but with single JSON representation
   "key": "Another workspace/part.part",
   "filename": "part.prt",
   "ftype": "file",
+  "kind": "cad",
   "filesize": 400,
   "ancestry": "9100",
   ...more info
