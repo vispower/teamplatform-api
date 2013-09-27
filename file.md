@@ -82,6 +82,7 @@ More filtering options are available:
 * `GET /files?workspace_id=1` will return files in workspace 1.
 * `GET /files?folder_id=1` will return files in folder 1.
 * `GET /files?filename=rabbit` will search for files named as `rabbit`.
+* `GET /files?extension=prt` will search for files having `.prt` file extension.
 * `GET /files?ftype=[file|folder]` will return `files/folders`.
 * `GET /files?deleted=[true|false]` will return `deleted/not-deleted` files.
 * `GET /files?state=[created|uploading|uploaded|processing|success|error]` will return files in corresponding state.
