@@ -101,13 +101,20 @@ Create Comment
         
 ```json
 {
-  "comment": "I'm trying to explain how to create a comment for a workspace...but"
+  "comment": "I'm trying to explain how to create a comment for a workspace...but",
+  "notify": {
+    "users": "1,2,3",
+    "groups": "123,321"
+  }
 }
 ```
 
 This will return `200 Ok`, with a representation of the comment just created in the response body if the creation was a success.
 Because `<commentable>` can not be comments itself, `POST /comments` is not allowed and will return `400 Bad Request`.
 If the commentable is not editable by you, server will respond with `403 Forbidden`.
+Set `notify` option if you want to send e-mail notifications only to specified users.
+`notify` value should be comma separated user ids or group ids.
+If you left `notify` blank, system will send e-mail notification to all workspace members by default.
   
 Create Reply
 --------------
