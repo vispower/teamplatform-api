@@ -15,7 +15,8 @@ Get Profile
   "email": "randyj@example.com",
   "picture": "https://d3hdmtlhbe6vzi.cloudfront.net/avatars/1/947fbb3731d5e7b765a3c594be4c47ed.png",
   "team_id": 1,
-  "team_name": "VispowerTech"
+  "team_name": "Awesome Team",
+  "team_host": "awesome.teamplatform.com"
 }
 ```
 
