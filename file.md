@@ -203,3 +203,24 @@ Delete, Undelete and Purge file
 * `DELETE /files/1?undelete=true` will undelete the file and return `200 Ok` if that was successful. If the user does not have access to undelete the file, you'll see `403 Forbidden`.
 
 * `DELETE /files/1?purge=true` will permanently delete the file and return `204 No Content` if that was successful. If the user does not have access to purge the file, you'll see `403 Forbidden`.
+
+Custom Properties
+--------------
+
+Client can store any custom properties on a file in a form of JSON data. Use `meta` parameter to update user defined custom property. `meta` parameters can be added for both file creation and update operation.
+
+      PUT /workspaces/1/files/1 OR POST /files/1
+      {
+        "meta": {
+          "author": "Superman",
+          "last revised at": "2014/1/1"
+        }
+      }
+
+      PUT /workspaces/1/files/2
+      {
+        "meta": {
+          "author": "Supergirl",
+          "last revised at": "2024/1/1"
+        }
+      }
